@@ -18,6 +18,21 @@ class KombuchaControl extends React.Component {
     }
   }
 
+  // switches formVisibleOnPage state
+  handleClick = () => {
+    if(this.state.selectedKombucha != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedTicket: null,
+        editing: false
+      });
+    } else {
+      this.setState (prevState => ({
+        formVisibleONPage: !prevState.formVisibleOnPage
+      }));
+    }
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
