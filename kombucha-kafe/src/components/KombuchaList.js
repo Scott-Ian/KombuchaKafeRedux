@@ -19,6 +19,7 @@ function KombuchaList(props) {
           description={kombucha.description}
           imgURL={kombucha.imgURL}
           quantity={kombucha.quantity}
+          numberOrdered={kombucha.numberOrdered}
           id={kombucha.id}
           key={kombucha.id} />
       )}
