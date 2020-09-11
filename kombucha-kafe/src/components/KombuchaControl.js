@@ -52,11 +52,18 @@ class KombuchaControl extends React.Component {
     });
   }
 
-  handleChangingSelectedTicket=(id) => {
+  handleChangingSelectedKombucha=(id) => {
     const selectedKombucha = this.state.masterKombuchaList
       .filter(kombucha => kombucha.id === id)[0];
     this.setState({
       selectedKombucha: selectedKombucha
+    });
+  }
+
+  handleDeletingKombucha = (id) => {
+    const newMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id != id);
+    this.setState ({
+      masterKombuchaList: newMasterKombuchaList
     });
   }
 
