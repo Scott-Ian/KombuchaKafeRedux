@@ -9,3 +9,5 @@ function NavButtons () {
     </React.Fragment>
   );
 }
+
+export default NavButtons;
