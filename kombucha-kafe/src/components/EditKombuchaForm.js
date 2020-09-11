@@ -48,7 +48,7 @@ function EditKombuchaForm(props) {
   )
 }
 
-CreateKombuchaForm.propTypes = {
+EditKombuchaForm.propTypes = {
   onEditKombuchaCreation: PropTypes.func,
 
   name:PropTypes.string,
