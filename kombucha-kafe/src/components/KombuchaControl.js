@@ -41,6 +41,25 @@ class KombuchaControl extends React.Component {
     });
   }
 
+  handleEditingKombuchaToList = (kombuchaToEdit) => {
+    const editedKombuchaMasterList = this.state.masterKombuchaList
+      .filter(kombucha => kombucha.id !== this.state.selectedKombucha.id)
+      .concat(kombuchaToEdit);
+    this.setState({
+      masterKombuchaList: editedKombuchaMasterList,
+      editing: false,
+      selectedKombucha: null
+    });
+  }
+
+  handleChangingSelectedTicket=(id) => {
+    const selectedKombucha = this.state.masterKombuchaList
+      .filter(kombucha => kombucha.id === id)[0];
+    this.setState({
+      selectedKombucha: selectedKombucha
+    });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
