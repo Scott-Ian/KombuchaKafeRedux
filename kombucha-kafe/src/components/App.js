@@ -1,6 +1,7 @@
 import React from 'react';
-import './App.css';
-import './Navbar/Navbar';
+import Navbar from './Navbar/Navbar';
+import Header from './Header';
+import KombuchaControl from './KombuchaControl';
 
 function App() {
   return (

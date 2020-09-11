@@ -4,8 +4,8 @@ function KombuchaControl() {
   
   return(
     <React.Fragment>
-      <TopSellers />
-      <KombuchaList />
+      {/* <TopSellers />
+      <KombuchaList /> */}
     </React.Fragment>
   )
 }
