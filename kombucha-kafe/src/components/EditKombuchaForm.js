@@ -1,52 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
 
-function CreateKombuchaForm(props) {
-  function handleNewKombuchaFormSubmission(event) {
+function EditKombuchaForm(props) {
+  const {kombucha} = props.kombucha
+
+  function handleEditKombuchaFormSubmission(event) {
     event.preventDefault();
     props.onNewKombuchaCreation({
-      id: v4(),
       name: event.target.name.value,
       description: event.target.description.value,
       brewery: event.target.description.value,
       price: parseInt(event.target.cost.value),
       imgURL: event.target.description.value,
-      quantity: 124,
-      numberOrdered: 0
     });
   }
 
   return(
     <React.Fragment>
-      <form onSubmit = {handleNewKombuchaFormSubmission}>
+      <form onSubmit = {handleEditKombuchaFormSubmission}>
         <input 
           type='text'
           name='name'
-          placeholder='Kombucha Name'
-          required
+          placeholder={kombucha.name}
         />
         <textarea
           name='description'
-          placeholder='Description'
-          required
+          placeholder={kombucha.description}
         />
         <input 
           type='text'
           name='brewery'
-          placeholder='Brewery'
-          required
+          placeholder={kombucha.brewery}
         />
         <input 
           type='number'
           name='price'
-          placeholder='Cost Per Pint'
-          required
+          placeholder={kombucha.price}
         />
         <input 
           type='text'
           name='imgURL'
-          placeholder='Image URL'
+          placeholder={kombucha.imgURL}
         />
         <button type="submit">Add Kombucha!</button>
       </form>
@@ -55,7 +49,13 @@ function CreateKombuchaForm(props) {
 }
 
 CreateKombuchaForm.propTypes = {
-  onNewKombuchaCreation: PropTypes.func
+  onEditKombuchaCreation: PropTypes.func,
+
+  name:PropTypes.string,
+  description: PropTypes.string,
+  brewery: PropTypes.string,
+  price: PropTypes.number,
+  imgURL: PropTypes.string
 }
 
-export default CreateKombuchaForm;
+export default EditKombuchaForm;
