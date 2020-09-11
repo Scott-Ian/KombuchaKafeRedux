@@ -1,11 +1,12 @@
 import React from 'react';
+import KombuchaList from './KombuchaList';
 
 function KombuchaControl() {
   
   return(
     <React.Fragment>
-      {/* <TopSellers />
-      <KombuchaList /> */}
+      
+      <KombuchaList /> *
     </React.Fragment>
   )
 }

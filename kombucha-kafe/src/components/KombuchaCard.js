@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 function KombuchaCard (props) {
   return(
     <React.Fragment>
-      <div className="flipCard" onClick = {props.whenKombuchaClicked(props.id)}>
+      <div className="flipCard" onClick = {() => props.whenKombuchaClicked(props.id)}>
         <div className="flipCardFront">
           <h3>{props.name}</h3>
-          <img src={props.imgURL} alt="Kombucha Picture" style="width:300px;height:300px;"></img>
+          <img src={props.imgURL} alt="Kombucha Picture" style={{width:"300px", height:"300px"}} />
         </div>
         <div className="flipCardBack">
           <h3>{props.name}</h3>
