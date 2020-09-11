@@ -14,6 +14,7 @@ function KombuchaCard (props) {
           <p>{props.brewery}</p>
           <p>${props.price}</p>
           <p>Remaining: {props.quantity}</p>
+          <p>Number Ordered: {props.numberOrdered}</p>
           <button onClick={() => props.order(props.id)}>Order</button>
         </div>
       </div>
@@ -29,6 +30,7 @@ KombuchaCard.propTypes = {
   description: PropTypes.string,
   imgURL: PropTypes.string,
   quantity: PropTypes.number,
+  numberOrdered: PropTypes.number,
   order: PropTypes.func,
   whenKombuchaClicked: PropTypes.func
 }

@@ -9,7 +9,7 @@ function TopSellers(props) {
       <h2>Top Sellers:</h2>
       <ol>
         {tempTopSellers.forEach((entry, index) =>
-          <li>{index}: {entry}</li>
+          <li key={index}>{entry}</li>
         )}
       </ol>
     </React.Fragment>
