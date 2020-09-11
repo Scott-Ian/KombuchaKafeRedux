@@ -33,6 +33,14 @@ class KombuchaControl extends React.Component {
     }
   }
 
+  handleAddingNewKombuchaToList = (newKombucha) => {
+    const newMasterKombuchaList = this.state.masterKombuchaList.concat(newKombucha);
+    this.setState({
+      masterKombuchaList: newMasterKombuchaList,
+      formVisibleOnPage: false
+    });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
