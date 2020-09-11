@@ -15,16 +15,47 @@ function CreateKombuchaForm(props) {
       quantity: 124,
       numberOrdered: 0
     });
-
   }
 
   return(
     <React.Fragment>
       <form onSubmit = {CreateKombuchaForm}>
-        <input type='text'/>
+        <input 
+          type='text'
+          name='name'
+          placeholder='Kombucha Name'
+          required
+        />
+        <textarea
+          name='description'
+          placeholder='Description'
+          required
+        />
+        <input 
+          type='text'
+          name='brewery'
+          placeholder='Brewery'
+          required
+        />
+        <input 
+          type='number'
+          name='price'
+          placeholder='Cost Per Pint'
+          required
+        />
+        <input 
+          type='text'
+          name='imgURL'
+          placeholder='Image URL'
+        />
+        <button type="submit">Add Kombucha!</button>
       </form>
     </React.Fragment>
   )
+}
+
+CreateKombuchaForm.propTypes = {
+  onNewKombuchaCreation: PropTypes.func
 }
 
 export default CreateKombuchaForm;
