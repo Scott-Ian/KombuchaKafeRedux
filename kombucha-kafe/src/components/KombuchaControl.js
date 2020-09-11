@@ -23,14 +23,20 @@ class KombuchaControl extends React.Component {
     if(this.state.selectedKombucha != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedTicket: null,
+        selectedKombucha: null,
         editing: false
       });
     } else {
       this.setState (prevState => ({
-        formVisibleONPage: !prevState.formVisibleOnPage
+        formVisibleOnPage: !prevState.formVisibleOnPage
       }));
     }
+  }
+  // changes editing-flag to update virtual DOM/Display
+  handleEditClick = () => {
+    this.setState({
+      editing: true
+    });
   }
 
   handleAddingNewKombuchaToList = (newKombucha) => {
@@ -41,7 +47,7 @@ class KombuchaControl extends React.Component {
     });
   }
 
-  handleEditingKombuchaToList = (kombuchaToEdit) => {
+  handleEditingKombuchaInList = (kombuchaToEdit) => {
     const editedKombuchaMasterList = this.state.masterKombuchaList
       .filter(kombucha => kombucha.id !== this.state.selectedKombucha.id)
       .concat(kombuchaToEdit);
@@ -71,13 +77,27 @@ class KombuchaControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
+    if(this.state.editing) {
+      currentlyVisibleState = <EditKombuchaForm kombucha={this.state.selectedKombucha} onEditKombucha= {this.handleEditingKombuchaInList} />
+      buttonText = "Return to Kombucha List";
+    } else if (this.state.selectedKombucha) {
+      currentlyVisibleState = <KombuchaDetail kombucha={this.state.selectedKombucha} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} />
+      buttonText = "Return to Kombucha List";
+    } else if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <CreateKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
+      buttonText = "Return to Kombucha List";
+    } else {
+      currentlyVisibleState = <KombuchaList kombuchaList={this.state.masterKombuchaList} onKombuchaSelection={this.handleChangingSelectedKombucha} />
+      buttonText="Add Kombucha"
+    }
+
     return (
 
       <React.Fragment>
-      
-      <KombuchaList /> *
+        {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
-    )
+    );
   }
 }
 
