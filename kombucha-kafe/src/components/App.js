@@ -6,8 +6,8 @@ import KombuchaControl from './KombuchaControl';
 function App() {
   return (
     <React.Fragment>
-      <div className="container">
         <Navbar />
+      <div className="container">
         <Header />
         <KombuchaControl />
       </div>

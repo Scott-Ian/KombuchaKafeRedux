@@ -7,7 +7,6 @@ function Navbar () {
     <React.Fragment>
       <nav className="navbar navbar-inverse" backgroundColor="black">
         <NavButtons />
-        <h2>Kombucha Kafe</h2>
         <SearchForm/>
       </nav>
     </React.Fragment>
