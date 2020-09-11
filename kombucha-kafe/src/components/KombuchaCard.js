@@ -2,20 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function KombuchaCard (props) {
+
+  
   return(
     <React.Fragment>
-      <div className="flipCard" onClick = {() => props.whenKombuchaClicked(props.id)}>
-        <div className="flipCardFront">
+      <div className="flip-card" onClick = {() => props.whenKombuchaClicked(props.id)}>
+        <div className="flip-card-inner">
+        <div className="flip-card-front">
           <h3>{props.name}</h3>
-          <img src={props.imgURL} alt="Kombucha Picture" style={{width:"300px", height:"300px"}} />
+          <img src={props.imgURL} alt="Kombucha Picture" style={{width:300, height:300}} />
         </div>
-        <div className="flipCardBack">
-          <h3>{props.name}</h3>
-          <p>{props.brewery}</p>
-          <p>${props.price}</p>
-          <p>Remaining: {props.quantity}</p>
-          <p>Number Ordered: {props.numberOrdered}</p>
-          <button onClick={() => props.order(props.id)}>Order</button>
+          <div className="flip-card-back">
+            <h3>{props.name}</h3>
+            <p>{props.brewery}</p>
+            <p>${props.price}</p>
+            <p>Remaining: {props.quantity}</p>
+            <p>Number Ordered: {props.numberOrdered}</p>
+            <button onClick={() => props.order(props.id)}>Order</button>
+          </div>
         </div>
       </div>
     </React.Fragment>

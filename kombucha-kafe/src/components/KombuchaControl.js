@@ -6,16 +6,65 @@ import EditKombuchaForm from './EditKombuchaForm';
 
 
 class KombuchaControl extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.state={
       formVisibleOnPage: false,
-      masterKombuchaList: [],
+      masterKombuchaList: [{
+        name: "Ginger Peach",
+        brewery: "Dave's Killer Kool-Aide",
+        price: 8,
+        quantity: 120,
+        description: "A tantalizing tase of ginger and peach awash the tongue in this beautiful concotion",
+        imgURL: "#",
+        numberOrdered: 31,
+        id: 1
+      },
+      {
+        name: "Honey Hibiscus",
+        brewery: "Margaret's Manse",
+        price: 10,
+        quantity: 92,
+        description: "Your tastebuds will be blown away by this sweet drink with a floral aroma",
+        numberOrdered: 82,
+        imgURL: "#",
+        id: 2
+      }],
       topSellers: [],
       selectedKombucha: null,
       editing: false
     }
+  }
+
+  // Sets some initial kombucha's to demo
+  populateInitialKombuchas = () =>{
+    const initialKombuchaList = [
+      {
+        name: "Ginger Peach",
+        brewery: "Dave's Killer Kool-Aide",
+        price: 8,
+        quantity: 120,
+        description: "A tantalizing tase of ginger and peach awash the tongue in this beautiful concotion",
+        imgURL: "#",
+        numberOrdered: 31,
+        id: 1
+      },
+      {
+        name: "Honey Hibiscus",
+        brewery: "Margaret's Manse",
+        price: 10,
+        quantity: 92,
+        description: "Your tastebuds will be blown away by this sweet drink with a floral aroma",
+        numberOrdered: 82,
+        imgURL: "#",
+        id: 2
+      }
+    ];
+    
+    this.setState({
+      masterKombuchaList: initialKombuchaList
+    });
   }
 
   // switches formVisibleOnPage state

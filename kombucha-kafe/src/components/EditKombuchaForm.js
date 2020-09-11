@@ -6,11 +6,11 @@ function EditKombuchaForm(props) {
 
   function handleEditKombuchaFormSubmission(event) {
     event.preventDefault();
-    props.onNewKombuchaCreation({
+    props.onNewKombuchaCreation({... kombucha,
       name: event.target.name.value,
       description: event.target.description.value,
       brewery: event.target.description.value,
-      price: parseInt(event.target.cost.value),
+      price: parseInt(event.target.price.value),
       imgURL: event.target.description.value,
     });
   }

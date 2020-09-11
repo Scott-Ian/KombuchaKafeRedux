@@ -5,32 +5,11 @@ import PropTypes from 'prop-types';
 
 function KombuchaList(props) {
 
-  const tempKombuchaList = [
-    {
-      name: "Ginger Peach",
-      brewery: "Dave's Killer Kool-Aide",
-      price: 8,
-      quantity: 120,
-      description: "A tantalizing tase of ginger and peach awash the tongue in this beautiful concotion",
-      imgURL: "#",
-      id: 1
-    },
-    {
-      name: "Honey Hibiscus",
-      brewery: "Margaret's Manse",
-      price: 10,
-      quantity: 92,
-      description: "Your tastebuds will be blown away by this sweet drink with a floral aroma",
-      imgURL: "#",
-      id: 2
-    }
-  ];
-
   return(
     <React.Fragment>
       <hr/>
       <TopSellers topSellers={props.topSellers}/>
-      {tempKombuchaList.map((kombucha) =>
+      {props.kombuchaList.map((kombucha) =>
         <KombuchaCard
           whenKombuchaClicked = {props.onKombuchaSelection}
           order={props.placeOrder}
