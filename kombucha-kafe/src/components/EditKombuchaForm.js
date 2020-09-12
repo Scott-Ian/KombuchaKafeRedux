@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function EditKombuchaForm(props) {
-  const {kombucha} = props.kombucha
 
   function handleEditKombuchaFormSubmission(event) {
     event.preventDefault();
-    props.onNewKombuchaCreation({... kombucha,
+    props.onEditKombucha({... props.kombucha,
       name: event.target.name.value,
       description: event.target.description.value,
       brewery: event.target.description.value,
@@ -21,26 +20,26 @@ function EditKombuchaForm(props) {
         <input 
           type='text'
           name='name'
-          placeholder={kombucha.name}
+          placeholder={props.kombucha.name}
         />
         <textarea
           name='description'
-          placeholder={kombucha.description}
+          placeholder={props.kombucha.description}
         />
         <input 
           type='text'
           name='brewery'
-          placeholder={kombucha.brewery}
+          placeholder={props.kombucha.brewery}
         />
         <input 
           type='number'
           name='price'
-          placeholder={kombucha.price}
+          placeholder={props.kombucha.price}
         />
         <input 
           type='text'
           name='imgURL'
-          placeholder={kombucha.imgURL}
+          placeholder={props.kombucha.imgURL}
         />
         <button type="submit">Add Kombucha!</button>
       </form>

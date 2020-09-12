@@ -144,6 +144,7 @@ class KombuchaControl extends React.Component {
 
       <React.Fragment>
         {currentlyVisibleState}
+        <hr/>
         <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
