@@ -112,7 +112,8 @@ class KombuchaControl extends React.Component {
     
     if(kombuchaToOrder.quantity > 0) {
       const newTotal = kombuchaToOrder.quantity -1;
-      const orderedKombucha = {...kombuchaToOrder, quantity:newTotal};
+      const newNumberOrderedTotal = kombuchaToOrder.numberOrdered +1;
+      const orderedKombucha = {...kombuchaToOrder, quantity:newTotal, numberOrdered: newNumberOrderedTotal};
 
       const newMasterKombuchaList = this.state.masterKombuchaList
       .filter(kombucha => kombucha.id !== id)
