@@ -88,7 +88,8 @@ class KombuchaControl extends React.Component {
   handleDeletingKombucha = (id) => {
     const newMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== id);
     this.setState ({
-      masterKombuchaList: newMasterKombuchaList
+      masterKombuchaList: newMasterKombuchaList,
+      selectedKombucha: null
     });
   }
 
