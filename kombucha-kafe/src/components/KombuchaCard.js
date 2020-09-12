@@ -14,7 +14,7 @@ function KombuchaCard (props) {
         </div>
           <div className="flip-card-back">
             <h3>{props.name}</h3>
-            <p>{props.brewery}</p>
+            <p>By: {props.brewery}</p>
             <p>${props.price}</p>
             <p>Remaining: {props.quantity}</p>
             <p>Number Ordered: {props.numberOrdered}</p>

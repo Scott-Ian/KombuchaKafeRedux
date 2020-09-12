@@ -5,7 +5,7 @@ import NavButtons from './NavButtons';
 function Navbar () {
   return(
     <React.Fragment>
-      <nav className="navbar navbar-inverse" backgroundColor="black">
+      <nav className="navbar navbar-inverse">
         <NavButtons />
         <SearchForm/>
       </nav>

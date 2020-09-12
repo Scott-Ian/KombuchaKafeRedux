@@ -14,7 +14,7 @@ function KombuchaDetail(props) {
       <p>Remaining: {kombucha.quantity}</p>
 
       <button className="btn btn-info" onClick={props.onClickingEdit}>Update Entry</button>
-      <button className="btn btn-alert" onClick={() => props.onClickingDelete(kombucha.id)}>Delete</button>
+      <button className="btn btn-danger" onClick={() => props.onClickingDelete(kombucha.id)}>Delete</button>
       <hr />
     </React.Fragment>
   );
