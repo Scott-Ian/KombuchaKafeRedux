@@ -10,7 +10,7 @@ function KombuchaCard (props) {
         <div className="flip-card-inner">
         <div className="flip-card-front">
           <h3>{props.name}</h3>
-          <img src={props.imgURL} alt="Kombucha Picture" style={{width:300, height:300}} />
+          <img src={props.imgURL} alt="Kombucha" style={{width:300, height:300}} />
         </div>
           <div className="flip-card-back">
             <h3>{props.name}</h3>

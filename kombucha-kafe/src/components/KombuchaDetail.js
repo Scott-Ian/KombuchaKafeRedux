@@ -14,6 +14,7 @@ function KombuchaDetail(props) {
       <p>Remaining: {kombucha.quantity}</p>
 
       <button className="btn btn-info" onClick={props.onClickingEdit}>Update Entry</button>
+      <button className="btn btn-success" onClick={() => props.onClickingRestock(kombucha.id)}>Restock</button>
       <button className="btn btn-danger" onClick={() => props.onClickingDelete(kombucha.id)}>Delete</button>
       <hr />
     </React.Fragment>
@@ -23,7 +24,8 @@ function KombuchaDetail(props) {
 KombuchaDetail.propTypes ={
   kombucha: PropTypes.object,
   onClickingEdit: PropTypes.func,
-  onClickingDelete: PropTypes.func
+  onClickingDelete: PropTypes.func,
+  onClickingRestock: PropTypes.func
 }
 
 export default KombuchaDetail;

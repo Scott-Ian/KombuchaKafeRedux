@@ -93,6 +93,19 @@ class KombuchaControl extends React.Component {
     });
   }
 
+  handleRestockingKombucha = (id) => {
+    const restockedKombucha = this.state.masterKombuchaList
+      .filter(kombucha => kombucha.id === id)
+      .quantity = 124;
+    const newMasterKombuchaList = this.state.masterKombuchaList
+      .filter(kombucha => kombucha.id !== id)
+      .concat(restockedKombucha);
+    this.setState({
+      masterKombuchaList: newMasterKombuchaList,
+      selectedKombucha: null
+    })
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -101,7 +114,7 @@ class KombuchaControl extends React.Component {
       currentlyVisibleState = <EditKombuchaForm kombucha={this.state.selectedKombucha} onEditKombucha= {this.handleEditingKombuchaInList} />
       buttonText = "Return to Kombucha List";
     } else if (this.state.selectedKombucha) {
-      currentlyVisibleState = <KombuchaDetail kombucha={this.state.selectedKombucha} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} />
+      currentlyVisibleState = <KombuchaDetail kombucha={this.state.selectedKombucha} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} onClickingRestock={this.handleRestockingKombucha}/>
       buttonText = "Return to Kombucha List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <CreateKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
