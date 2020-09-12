@@ -17,7 +17,7 @@ class KombuchaControl extends React.Component {
         price: 8,
         quantity: 120,
         description: "A tantalizing tase of ginger and peach awash the tongue in this beautiful concotion",
-        imgURL: "#",
+        imgURL: "https://post.greatist.com/wp-content/uploads/2020/08/kombucha-alcohol-content-732x549-thumbnail.jpg",
         numberOrdered: 31,
         id: "1"
       },
@@ -28,10 +28,10 @@ class KombuchaControl extends React.Component {
         quantity: 92,
         description: "Your tastebuds will be blown away by this sweet drink with a floral aroma",
         numberOrdered: 82,
-        imgURL: "#",
+        imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRvTxYuLYKhs9h-yQW0MFTcS1hIIVFYsE0o_w&usqp=CAU",
         id: "2"
       }],
-      topSellers: this.state.masterKombuchaList,
+      topSellers: [],
       selectedKombucha: null,
       editing: false
     }
