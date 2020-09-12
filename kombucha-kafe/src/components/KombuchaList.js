@@ -12,8 +12,7 @@ function KombuchaList(props) {
       {props.kombuchaList.map((kombucha) =>
         <KombuchaCard
           whenKombuchaClicked = {props.onKombuchaSelection}
-          onOrderingKombucha= {props.onOrderingKombucha}
-          order={props.placeOrder}
+          onOrderingKombucha = {props.onOrderingKombucha}
           name={kombucha.name}
           brewery={kombucha.brewery}
           price={kombucha.price}
@@ -31,7 +30,6 @@ function KombuchaList(props) {
 KombuchaList.propTypes = {
   onKombuchaSelection: PropTypes.func,
   onOrderingKombucha: PropTypes.func,
-  placeOrder:PropTypes.func,
   kombuchaList: PropTypes.array,
   topSellers: PropTypes.array,
 };

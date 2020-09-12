@@ -119,7 +119,8 @@ class KombuchaControl extends React.Component {
       .concat(orderedKombucha);
 
       this.setState({
-        masterKombuchaList: newMasterKombuchaList
+        masterKombuchaList: newMasterKombuchaList,
+        selectedKombucha: null
       });
     }
   }
@@ -132,13 +133,13 @@ class KombuchaControl extends React.Component {
       currentlyVisibleState = <EditKombuchaForm kombucha={this.state.selectedKombucha} onEditKombucha= {this.handleEditingKombuchaInList} />
       buttonText = "Return to Kombucha List";
     } else if (this.state.selectedKombucha) {
-      currentlyVisibleState = <KombuchaDetail kombucha={this.state.selectedKombucha} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} onClickingRestock={this.handleRestockingKombucha}/>
+      currentlyVisibleState = <KombuchaDetail kombucha={this.state.selectedKombucha} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} onClickingRestock={this.handleRestockingKombucha} onOrderingKombucha={this.handleOrderingKombucha}/>
       buttonText = "Return to Kombucha List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <CreateKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
       buttonText = "Return to Kombucha List";
     } else {
-      currentlyVisibleState = <KombuchaList kombuchaList={this.state.masterKombuchaList} onKombuchaSelection={this.handleChangingSelectedKombucha} onOrderingKombucha={this.handleOrderingKombucha}/>
+      currentlyVisibleState = <KombuchaList kombuchaList={this.state.masterKombuchaList} onKombuchaSelection={this.handleChangingSelectedKombucha}/>
       buttonText="Add Kombucha"
     }
 
