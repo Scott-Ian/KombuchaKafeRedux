@@ -139,11 +139,14 @@ class KombuchaControl extends React.Component {
       .filter(kombucha => kombucha.id !== id)
       .concat(orderedKombucha);
 
-      const newTopSellers = this.state.masterKombuchaList.sort( (a,b) => a.numOrdered - b.numOrdered).slice(0,2);
-
       this.setState({
         masterKombuchaList: newMasterKombuchaList,
         selectedKombucha: null,
+      });
+
+      const newTopSellers = this.state.masterKombuchaList.sort( (a,b) => a.numOrdered + b.numOrdered).slice(0,3);
+
+      this.setState({
         topSellers: newTopSellers
       });
     }

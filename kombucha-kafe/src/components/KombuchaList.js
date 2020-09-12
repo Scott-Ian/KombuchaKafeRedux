@@ -4,25 +4,39 @@ import TopSellers from './TopSellers';
 import PropTypes from 'prop-types';
 
 function KombuchaList(props) {
+  
+  const gridContainerStyle = {
+    display: "grid"
+  }
+
+  const menuStyle = {
+    gridArea: "menu"
+  }
 
   return(
     <React.Fragment>
       <hr/>
-      <TopSellers topSellers={props.topSellers}/>
-      {props.kombuchaList.map((kombucha) =>
-        <KombuchaCard
-          whenKombuchaClicked = {props.onKombuchaSelection}
-          onOrderingKombucha = {props.onOrderingKombucha}
-          name={kombucha.name}
-          brewery={kombucha.brewery}
-          price={kombucha.price}
-          description={kombucha.description}
-          imgURL={kombucha.imgURL}
-          quantity={kombucha.quantity}
-          numberOrdered={kombucha.numberOrdered}
-          id={kombucha.id}
-          key={kombucha.id} />
-      )}
+      <div className="grid-container" style={gridContainerStyle}>
+        <div className="grid-item menu" style={menuStyle}>
+        <TopSellers topSellers={props.topSellers}/>
+        </div>
+        {props.kombuchaList.map((kombucha) =>
+          <div className="grid-item">
+            <KombuchaCard
+              whenKombuchaClicked = {props.onKombuchaSelection}
+              onOrderingKombucha = {props.onOrderingKombucha}
+              name={kombucha.name}
+              brewery={kombucha.brewery}
+              price={kombucha.price}
+              description={kombucha.description}
+              imgURL={kombucha.imgURL}
+              quantity={kombucha.quantity}
+              numberOrdered={kombucha.numberOrdered}
+              id={kombucha.id}
+              key={kombucha.id} />
+          </div>
+          )}
+      </div>
     </React.Fragment>
   );
 }
