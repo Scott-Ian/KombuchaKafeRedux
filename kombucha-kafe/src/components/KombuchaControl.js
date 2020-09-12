@@ -106,6 +106,24 @@ class KombuchaControl extends React.Component {
     })
   }
 
+  handleOrderingKombucha = (id) => {
+    const kombuchaToOrder = this.state.masterKombuchaList
+      .filter(kombucha => kombucha.id === id)[0];
+    
+    if(kombuchaToOrder.quantity > 0) {
+      const newTotal = kombuchaToOrder.quantity -1;
+      const orderedKombucha = {...kombuchaToOrder, quantity:newTotal};
+
+      const newMasterKombuchaList = this.state.masterKombuchaList
+      .filter(kombucha => kombucha.id !== id)
+      .concat(orderedKombucha);
+
+      this.setState({
+        masterKombuchaList: newMasterKombuchaList
+      });
+    }
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -120,7 +138,7 @@ class KombuchaControl extends React.Component {
       currentlyVisibleState = <CreateKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
       buttonText = "Return to Kombucha List";
     } else {
-      currentlyVisibleState = <KombuchaList kombuchaList={this.state.masterKombuchaList} onKombuchaSelection={this.handleChangingSelectedKombucha} />
+      currentlyVisibleState = <KombuchaList kombuchaList={this.state.masterKombuchaList} onKombuchaSelection={this.handleChangingSelectedKombucha} onOrderingKombucha={this.handleOrderingKombucha}/>
       buttonText="Add Kombucha"
     }
 
