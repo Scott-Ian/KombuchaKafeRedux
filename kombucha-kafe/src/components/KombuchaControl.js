@@ -94,9 +94,9 @@ class KombuchaControl extends React.Component {
   }
 
   handleRestockingKombucha = (id) => {
-    const restockedKombucha = this.state.masterKombuchaList
-      .filter(kombucha => kombucha.id === id)
-      .quantity = 124;
+    const kombuchaToRestock = this.state.masterKombuchaList
+      .filter(kombucha => kombucha.id === id)[0];
+    const restockedKombucha = {...kombuchaToRestock, quantity:124};
     const newMasterKombuchaList = this.state.masterKombuchaList
       .filter(kombucha => kombucha.id !== id)
       .concat(restockedKombucha);
