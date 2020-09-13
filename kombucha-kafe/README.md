@@ -36,7 +36,7 @@ __
 * As a user, I want a Top Sellers list to display the most popular beverages.
 
 ## <h2 align = "center"> Component Relationships
-![image](./ReadmeImages/KombuchaCardMockup.jpg)
+![image](./ReadmeImages/ComponentRelationshipsPropMap.jpg)
 
 
 ## Known Bugs
