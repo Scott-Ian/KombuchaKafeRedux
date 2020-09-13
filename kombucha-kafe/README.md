@@ -19,6 +19,7 @@
 * to clone this content, copy the url provided by the 'clone or download' button in GitHub
 * in command line use the command 'git clone (https://github.com/Scott-Ian/KombuchaKafe.git)'
 * open the program in a code editor
+* move into the sub-directory kombucha-kafe
 * in the command/termminal line enter the command "npm start" to run the program
 * if the project does not open on its own, in your preferred web-browser navigate to: localhost: 3000
 __
