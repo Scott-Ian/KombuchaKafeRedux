@@ -42,7 +42,7 @@ class KombuchaControl extends React.Component {
         id: "3"
       },
       {
-        name: "Wolfe Cola",
+        name: "Wolf Cola",
         brewery: "Franks Fluids",
         price: 12,
         quantity: 27,
