@@ -22,28 +22,33 @@ function EditKombuchaForm(props) {
         <input 
           type='text'
           name='name'
-          placeholder={kombucha.name}
+          placeholder='Name'
+          // placeholder={kombucha.name}
         />
         <textarea
           name='description'
-          placeholder={kombucha.description}
+          placeholder='Description'
+          //placeholder={kombucha.description}
         />
         <input 
           type='text'
           name='brewery'
-          placeholder={kombucha.brewery}
+          placeholder='Brewery'
+          //placeholder={kombucha.brewery}
         />
         <input 
           type='number'
           name='price'
-          placeholder={kombucha.price}
+          placeholder='Price'
+          //placeholder={kombucha.price}
         />
         <input 
           type='text'
           name='imgURL'
-          placeholder={kombucha.imgURL}
+          placeholder='Image URL'
+          //placeholder={kombucha.imgURL}
         />
-        <button type="submit">Add Kombucha!</button>
+        <button type="submit">Edit Kombucha!</button>
       </form>
     </React.Fragment>
   )
