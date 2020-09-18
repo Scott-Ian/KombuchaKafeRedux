@@ -76,4 +76,10 @@ describe ('KombuchaListReducer', () => {
     expect(kombuchaListReducer(currentState, action)[66].numberOrdered).toEqual(newNumberOrdered);
   });
 
+  test('Should reset quantity to 124 when a kombucha is restocked', () =>  {
+    const action = a.restockKombucha(66);
+    
+    expect(kombuchaListReducer(currentState, action)[66].quantity).toEqual(124);
+  })
+
 })
