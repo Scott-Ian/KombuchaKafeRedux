@@ -12,7 +12,14 @@ import * as a from './../actions';
 
 class KombuchaControl extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   handleClick = () => {
+    const { dispatch } = this.props;
+
     if (this.props.displayState.display === 'KombuchaList') {
       const action = a.createDisplay();
       dispatch(action);
@@ -53,8 +60,8 @@ class KombuchaControl extends React.Component {
 
 
 KombuchaControl.propTypes = {
-  masterKombuchaList: PropTypes.Object,
-  displayState: PropTypes.Object
+  masterKombuchaList: PropTypes.object,
+  displayState: PropTypes.object
 }
 
 const mapStateToProps = state => {
