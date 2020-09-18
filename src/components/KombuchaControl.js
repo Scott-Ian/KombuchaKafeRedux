@@ -3,8 +3,72 @@ import KombuchaList from './KombuchaList';
 import KombuchaDetail from './KombuchaDetail';
 import CreateKombuchaForm from './CreateKombuchaForm';
 import EditKombuchaForm from './EditKombuchaForm';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import * as a from './../actions';
 
 
+//function KombuchaControl() {
+
+class KombuchaControl extends React.Component {
+
+  handleClick = () => {
+    if (this.props.displayState.display === 'KombuchaList') {
+      const action = a.createDisplay();
+      dispatch(action);
+    } else {
+      const action = a.listDisplay();
+      dispatch(action);
+    }
+  }
+
+
+  render() {
+    let buttonText = null;
+    let pageToDisplay = null;
+    
+    if (this.props.displayState.display === 'EditKombuchaForm') {
+      pageToDisplay = <EditKombuchaForm />
+      buttonText = "Return to Kombucha List";
+    } else if (this.props.displayState.display === 'KombuchaDetail') {
+      pageToDisplay = <KombuchaDetail />
+      buttonText="Return to Kombucha List";
+    } else if (this.props.displayState.display === 'CreateKombuchaForm') {
+      pageToDisplay = <CreateKombuchaForm />
+      buttonText = "Return to Kombucha List";
+    } else {
+      pageToDisplay = <KombuchaList />
+      buttonText = "Add Kombucha";
+    }
+
+    return (
+      <React.Fragment>
+        {pageToDisplay}
+        <hr/>
+        <button onClick={this.handleClick}>{buttonText}</button>
+      </React.Fragment>
+    );
+  }
+}
+
+
+KombuchaControl.propTypes = {
+  masterKombuchaList: PropTypes.Object,
+  displayState: PropTypes.Object
+}
+
+const mapStateToProps = state => {
+  return {
+    masterKombuchaList: state.masterKombuchaList,
+    displayState: state.displayState
+  }
+}
+
+KombuchaControl = connect(mapStateToProps)(KombuchaControl);
+
+export default KombuchaControl;
+
+/*
 class KombuchaControl extends React.Component {
 
   constructor(props) {
@@ -151,35 +215,4 @@ class KombuchaControl extends React.Component {
       });
     }
   }
-
-  render() {
-    let currentlyVisibleState = null;
-    let buttonText = null;
-
-    if(this.state.editing) {
-      currentlyVisibleState = <EditKombuchaForm kombucha={this.state.selectedKombucha} onEditKombucha= {this.handleEditingKombuchaInList} />
-      buttonText = "Return to Kombucha List";
-    } else if (this.state.selectedKombucha) {
-      currentlyVisibleState = <KombuchaDetail kombucha={this.state.selectedKombucha} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} onClickingRestock={this.handleRestockingKombucha} onOrderingKombucha={this.handleOrderingKombucha}/>
-      buttonText = "Return to Kombucha List";
-    } else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <CreateKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
-      buttonText = "Return to Kombucha List";
-    } else {
-      currentlyVisibleState = <KombuchaList kombuchaList={this.state.masterKombuchaList} topSellers = {this.state.topSellers} onKombuchaSelection={this.handleChangingSelectedKombucha}/>
-      buttonText="Add Kombucha"
-    }
-
-    return (
-
-      <React.Fragment>
-        {currentlyVisibleState}
-        <hr/>
-        <button onClick={this.handleClick}>{buttonText}</button>
-      </React.Fragment>
-    );
-  }
-}
-
-
-export default KombuchaControl;
+*/

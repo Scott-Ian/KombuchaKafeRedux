@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function KombuchaDetail(props) {
-  const {kombucha} = props
+  const {kombucha} = props;
 
   return(
     <React.Fragment>
