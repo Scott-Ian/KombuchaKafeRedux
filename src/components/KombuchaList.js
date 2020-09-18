@@ -2,6 +2,7 @@ import React from 'react';
 import KombuchaCard from './KombuchaCard';
 import TopSellers from './TopSellers';
 import PropTypes from 'prop-types';
+import { render } from '@testing-library/react';
 
 function KombuchaList(props) {
   

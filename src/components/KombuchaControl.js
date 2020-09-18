@@ -29,6 +29,12 @@ class KombuchaControl extends React.Component {
     }
   }
 
+  handleChangingSelectedKombucha=(id) => {
+    const { dispatch } = this.props;
+    const action = a.detailDisplay(id);
+    dispatch(action);
+    };
+
 
   render() {
     let buttonText = null;
@@ -44,7 +50,7 @@ class KombuchaControl extends React.Component {
       pageToDisplay = <CreateKombuchaForm />
       buttonText = "Return to Kombucha List";
     } else {
-      pageToDisplay = <KombuchaList kombuchaList={this.props.masterKombuchaList}/>
+      pageToDisplay = <KombuchaList kombuchaList={this.props.masterKombuchaList} onKombuchaSelection = {this.handleChangingSelectedKombucha}/>
       buttonText = "Add Kombucha";
     }
 

@@ -40,5 +40,3 @@ export const initialEntries = {
     id: "4"
   },
 }
-
-//export default initialEntries;
