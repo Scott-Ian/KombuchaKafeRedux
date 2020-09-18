@@ -42,10 +42,12 @@ export const createDisplay = () => ({
   type: c.CREATE_KOMBUCHA
 })
 
-export const detailDisplay = () => ({
-  type: c.KOMBUCHA_DETAIL
+export const detailDisplay = (id) => ({
+  type: c.KOMBUCHA_DETAIL,
+  id
 });
 
-export const editKombucha = () => ({
-  type: c.EDIT_KOMBUCHA
+export const editKombucha = (id) => ({
+  type: c.EDIT_KOMBUCHA,
+  id
 })
