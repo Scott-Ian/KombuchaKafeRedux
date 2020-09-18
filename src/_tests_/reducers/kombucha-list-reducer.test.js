@@ -21,7 +21,9 @@ describe ('KombuchaListReducer', () => {
 
   test('Should add a new Kombucha to the kombucha list', () => {
     const action = addTicket(kombuchaData);
-    
+    const kombuchaId = kombuchaData.id;
+
+    expect(kombuchaListReducer({}, action)).toEqual({[kombuchaId]: kombuchaData});
   });
 
 })
