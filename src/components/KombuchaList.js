@@ -18,9 +18,9 @@ function KombuchaList(props) {
       <hr/>
       <div className="grid-container" style={gridContainerStyle}>
         <div className="grid-item menu" style={menuStyle}>
-        <TopSellers topSellers={props.topSellers}/>
+        {/* <TopSellers topSellers={props.topSellers}/> */}
         </div>
-        {props.kombuchaList.map((kombucha) =>
+        {Object.values(props.kombuchaList).map((kombucha) =>
           <div className="grid-item">
             <KombuchaCard
               whenKombuchaClicked = {props.onKombuchaSelection}
@@ -44,8 +44,8 @@ function KombuchaList(props) {
 KombuchaList.propTypes = {
   onKombuchaSelection: PropTypes.func,
   onOrderingKombucha: PropTypes.func,
-  kombuchaList: PropTypes.array,
-  topSellers: PropTypes.array,
+  kombuchaList: PropTypes.object,
+  // topSellers: PropTypes.array,
 };
 
 export default KombuchaList;

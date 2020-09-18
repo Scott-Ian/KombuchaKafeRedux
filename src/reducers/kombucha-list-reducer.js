@@ -1,6 +1,8 @@
 import * as c from './../actions/ActionTypes';
+import * as i from './../initialEntries';
 
-export default (state ={}, action) => {
+
+export default (state = i.initialEntries, action) => {
   const {name, brewery, price, description, imgURL, quantity, numberOrdered, id } = action;
 
   switch(action.type) {

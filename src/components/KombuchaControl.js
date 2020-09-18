@@ -44,7 +44,7 @@ class KombuchaControl extends React.Component {
       pageToDisplay = <CreateKombuchaForm />
       buttonText = "Return to Kombucha List";
     } else {
-      pageToDisplay = <KombuchaList />
+      pageToDisplay = <KombuchaList kombuchaList={this.props.masterKombuchaList}/>
       buttonText = "Add Kombucha";
     }
 
