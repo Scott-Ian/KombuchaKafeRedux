@@ -34,7 +34,10 @@ export default (state ={}, action) => {
         return state;
       }
     case c.RESTOCK_KOMBUCHA:
-      return state[id];
+      const newStateRestock = {... state };
+      const restockedQuantity = 124;
+      newStateRestock[id].quantity = restockedQuantity;
+      return newStateRestock;
     default:
       return state;
   }
