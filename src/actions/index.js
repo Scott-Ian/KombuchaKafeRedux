@@ -33,3 +33,19 @@ export const restockKombucha = (id) => ({
   type: c.RESTOCK_KOMBUCHA,
   id
 });
+
+export const listDisplay = () => ({
+  type: c.KOMBUCHA_LIST
+})
+
+export const createDisplay = () => ({
+  type: c.CREATE_KOMBUCHA
+})
+
+export const detailDisplay = () => ({
+  type: c.KOMBUCHA_DETAIL
+});
+
+export const editKombucha = () => ({
+  type: c.EDIT_KOMBUCHA
+})
