@@ -15,6 +15,29 @@ describe ('KombuchaListReducer', () => {
     id: 66
   }
 
+  const currentState = {
+    66: {
+      name: "Cherry Garcia",
+      brewery: "Greatful Bucha",
+      price: 9,
+      description: 'A cherry brew for the ages',
+      imgURL: '#',
+      quantity: 39,
+      numberOrdered: 18,
+      id: 66
+    },
+    2: {
+      name: "Billy's Bucha",
+      brewery: "Bucha Boy",
+      price: 7,
+      description: 'The IPA of Kombucha',
+      imgURL: '#',
+      quantity: 27,
+      numberOrdered: 4,
+      id: 2
+    }
+  }
+
   test('Should return default state if there is no action type passed into the reducer', () => {
     expect(kombuchaListReducer({}, {type: null})).toEqual({});
   });
@@ -23,6 +46,22 @@ describe ('KombuchaListReducer', () => {
     const action = a.addKombucha(kombuchaData);
     const response = kombuchaListReducer({}, action);
     expect(kombuchaListReducer({}, action)).toEqual({[kombuchaData.id]: kombuchaData});
+  });
+
+  test('Should delete a kombucha', () => {
+    const action = a.deleteKombucha(66)
+    expect(kombuchaListReducer(currentState, action)).toEqual({
+      2: {
+        name: "Billy's Bucha",
+        brewery: "Bucha Boy",
+        price: 7,
+        description: 'The IPA of Kombucha',
+        imgURL: '#',
+        quantity: 27,
+        numberOrdered: 4,
+        id: 2
+      }
+    })
   });
 
 })

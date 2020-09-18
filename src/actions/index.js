@@ -18,3 +18,8 @@ export const addKombucha = (kombucha) => {
     id: id
   }
 }
+
+export const deleteKombucha = (id) => ({
+  type: c.DELETE_KOMBUCHA,
+  id
+});

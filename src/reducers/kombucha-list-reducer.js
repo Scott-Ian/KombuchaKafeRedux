@@ -17,6 +17,8 @@ export default (state ={}, action) => {
           id: id
         }
       });
+    case c.DELETE_KOMBUCHA:
+      return state;
     default:
       return state;
   }
