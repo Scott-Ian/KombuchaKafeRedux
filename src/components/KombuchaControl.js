@@ -39,16 +39,14 @@ class KombuchaControl extends React.Component {
     const {dispatch } = this.props;
     const action = a.addKombucha(newKombucha);
     dispatch(action);
-    const action2 = a.listDisplay();
-    dispatch(action2);
+    this.resetDisplay();
   }
 
   handleDeletingKombucha = (id) => {
     const { dispatch } = this.props;
     const action = a.deleteKombucha(id);
-    const action2 = a.listDisplay();
     dispatch(action);
-    dispatch(action2);
+    this.resetDisplay();
   }
 
   handleEditClick = () => {
@@ -69,6 +67,12 @@ class KombuchaControl extends React.Component {
     dispatch(action);
   }
 
+  resetDisplay = () => {
+    const {dispatch} = this.props;
+    const action = a.listDisplay();
+    dispatch(action);
+  }
+
 
   render() {
     let buttonText = null;
@@ -76,7 +80,7 @@ class KombuchaControl extends React.Component {
     const selectedKombuchaId = this.props.displayState.kombuchaId
 
     if (this.props.displayState.display === 'EditKombuchaForm') {
-      pageToDisplay = <EditKombuchaForm />
+      pageToDisplay = <EditKombuchaForm kombucha={this.props.masterKombuchaList[selectedKombuchaId]} onEditKombucha={this.handleAddingNewKombuchaToList}/>
       buttonText = "Return to Kombucha List";
     } else if (this.props.displayState.display === 'KombuchaDetail') {
       pageToDisplay = <KombuchaDetail kombucha = {this.props.masterKombuchaList[selectedKombuchaId]} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} onClickingRestock={this.handleRestockingKombucha} onOrderingKombucha={this.handleOrderingKombucha}/>

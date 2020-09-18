@@ -48,13 +48,13 @@ function EditKombuchaForm(props) {
 }
 
 EditKombuchaForm.propTypes = {
-  onEditKombuchaCreation: PropTypes.func,
-
-  name:PropTypes.string,
-  description: PropTypes.string,
-  brewery: PropTypes.string,
-  price: PropTypes.number,
-  imgURL: PropTypes.string
+  onEditKombucha: PropTypes.func,
+  kombucha: PropTypes.object,
+  // name:PropTypes.string,
+  // description: PropTypes.string,
+  // brewery: PropTypes.string,
+  // price: PropTypes.number,
+  // imgURL: PropTypes.string
 }
 
 export default EditKombuchaForm;
