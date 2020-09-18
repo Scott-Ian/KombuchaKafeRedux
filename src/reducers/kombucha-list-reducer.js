@@ -18,7 +18,9 @@ export default (state ={}, action) => {
         }
       });
     case c.DELETE_KOMBUCHA:
-      return state;
+      const newState = {...state };
+      delete newState[id];
+      return newState;
     default:
       return state;
   }
