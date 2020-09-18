@@ -23,3 +23,13 @@ export const deleteKombucha = (id) => ({
   type: c.DELETE_KOMBUCHA,
   id
 });
+
+export const orderKombucha = (id) => ({
+  type: c.ORDER_KOMBUCHA,
+  id
+});
+
+export const restockKombucha = (id) => ({
+  type: c.RESTOCK_KOMBUCHA,
+  id
+});

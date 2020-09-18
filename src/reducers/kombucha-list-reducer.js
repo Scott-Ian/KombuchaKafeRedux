@@ -21,6 +21,10 @@ export default (state ={}, action) => {
       const newState = {...state };
       delete newState[id];
       return newState;
+    case c.ORDER_KOMBUCHA:
+      return state[id];
+    case c.RESTOCK_KOMBUCHA:
+      return state[id];
     default:
       return state;
   }
