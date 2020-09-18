@@ -9,7 +9,8 @@ describe ('formVisibleReducer', () => {
   });
 
   test('Should switch formVisible state to true', () => {
-    expect(formVisibleReducer(false, a.toggleForm)).toEqual(true);
+    const action = a.toggleForm();
+    expect(formVisibleReducer(false, action)).toEqual(true);
   });
 
 })
