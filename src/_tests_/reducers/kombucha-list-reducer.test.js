@@ -64,6 +64,16 @@ describe ('KombuchaListReducer', () => {
     })
   });
 
-  test('Should ')
+  test('Should reduce quantity by 1 when a kombucha is ordered', () => {
+    const action = a.orderKombucha(66);
+    const newQuantity = currentState[66].quantity -1;
+    expect(kombuchaListReducer(currentState, action)[66].quantity).toEqual(newQuantity);
+  });
+
+  test('Should increment numberOrdered by 1 when a kombucha is ordered', () => {
+    const action = a.orderKombucha(66);
+    const newNumberOrdered = currentState[66].numberOrdered + 1;
+    expect(kombuchaListReducer(currentState, action)[66].numberOrdered).toEqual(newNumberOrdered);
+  });
 
 })
