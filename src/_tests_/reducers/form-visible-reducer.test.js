@@ -7,4 +7,8 @@ describe ('formVisibleReducer', () => {
     expect(formVisibleReducer(false, {type: null})).toEqual(false);
   });
 
+  test('Should switch formVisible state to true' () => {
+    expect(formVisibleReducer)
+  });
+
 })
