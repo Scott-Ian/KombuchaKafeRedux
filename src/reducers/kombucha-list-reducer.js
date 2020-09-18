@@ -24,7 +24,9 @@ export default (state ={}, action) => {
     case c.ORDER_KOMBUCHA:
       const newStateOrder = {... state };
       const newQuantity = newStateOrder[id].quantity - 1;
+      const newNumberOrdered = newStateOrder[id].numberOrdered + 1;
       newStateOrder[id].quantity = newQuantity;
+      newStateOrder[id].numberOrdered = newNumberOrdered;
     return newStateOrder;
     case c.RESTOCK_KOMBUCHA:
       return state[id];
