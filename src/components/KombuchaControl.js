@@ -51,6 +51,29 @@ class KombuchaControl extends React.Component {
     dispatch(action2);
   }
 
+  handleEditClick = () => {
+    const { dispatch } = this.props;
+    const action = a.editKombucha();
+    dispatch(action);
+  }
+
+  handleRestockingKombucha = (id) => {
+    const { dispatch } = this.props;
+    const action = a.restockKombucha(id);
+    dispatch(action);
+
+    // const kombuchaToRestock = this.state.masterKombuchaList
+    //   .filter(kombucha => kombucha.id === id)[0];
+    // const restockedKombucha = {...kombuchaToRestock, quantity:124};
+    // const newMasterKombuchaList = this.state.masterKombuchaList
+    //   .filter(kombucha => kombucha.id !== id)
+    //   .concat(restockedKombucha);
+    // this.setState({
+    //   masterKombuchaList: newMasterKombuchaList,
+    //   selectedKombucha: null
+    // })
+  }
+
 
   render() {
     let buttonText = null;
@@ -61,7 +84,7 @@ class KombuchaControl extends React.Component {
       pageToDisplay = <EditKombuchaForm />
       buttonText = "Return to Kombucha List";
     } else if (this.props.displayState.display === 'KombuchaDetail') {
-      pageToDisplay = <KombuchaDetail kombucha = {this.props.masterKombuchaList[selectedKombuchaId]} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} onClickingRestock={this.handlerestockingKombucha} onOrderingKombucha={this.handleOrderingKombucha}/>
+      pageToDisplay = <KombuchaDetail kombucha = {this.props.masterKombuchaList[selectedKombuchaId]} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} onClickingRestock={this.handleRestockingKombucha} onOrderingKombucha={this.handleOrderingKombucha}/>
       buttonText="Return to Kombucha List";
     } else if (this.props.displayState.display === 'CreateKombuchaForm') {
       pageToDisplay = <CreateKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
@@ -100,11 +123,6 @@ export default KombuchaControl;
 
 /*
   // changes editing-flag to update virtual DOM/Display
-  handleEditClick = () => {
-    this.setState({
-      editing: true
-    });
-  }
 
   handleEditingKombuchaInList = (kombuchaToEdit) => {
     const editedKombuchaMasterList = this.state.masterKombuchaList
@@ -115,19 +133,6 @@ export default KombuchaControl;
       editing: false,
       selectedKombucha: null
     });
-  }
-
-  handleRestockingKombucha = (id) => {
-    const kombuchaToRestock = this.state.masterKombuchaList
-      .filter(kombucha => kombucha.id === id)[0];
-    const restockedKombucha = {...kombuchaToRestock, quantity:124};
-    const newMasterKombuchaList = this.state.masterKombuchaList
-      .filter(kombucha => kombucha.id !== id)
-      .concat(restockedKombucha);
-    this.setState({
-      masterKombuchaList: newMasterKombuchaList,
-      selectedKombucha: null
-    })
   }
 
   handleOrderingKombucha = (id) => {
