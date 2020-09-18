@@ -35,13 +35,21 @@ class KombuchaControl extends React.Component {
     dispatch(action);
     };
 
-    handleAddingNewKombuchaToList = (newKombucha) => {
-      const {dispatch } = this.props;
-      const action = a.addKombucha(newKombucha);
-      dispatch(action);
-      const action2 = a.listDisplay();
-      dispatch(action2);
-    }
+  handleAddingNewKombuchaToList = (newKombucha) => {
+    const {dispatch } = this.props;
+    const action = a.addKombucha(newKombucha);
+    dispatch(action);
+    const action2 = a.listDisplay();
+    dispatch(action2);
+  }
+
+  handleDeletingKombucha = (id) => {
+    const { dispatch } = this.props;
+    const action = a.deleteKombucha(id);
+    const action2 = a.listDisplay();
+    dispatch(action);
+    dispatch(action2);
+  }
 
 
   render() {
@@ -53,7 +61,7 @@ class KombuchaControl extends React.Component {
       pageToDisplay = <EditKombuchaForm />
       buttonText = "Return to Kombucha List";
     } else if (this.props.displayState.display === 'KombuchaDetail') {
-      pageToDisplay = <KombuchaDetail kombucha = {this.props.masterKombuchaList[selectedKombuchaId]}/>
+      pageToDisplay = <KombuchaDetail kombucha = {this.props.masterKombuchaList[selectedKombuchaId]} onClickingDelete = {this.handleDeletingKombucha} onClickingEdit={this.handleEditClick} onClickingRestock={this.handlerestockingKombucha} onOrderingKombucha={this.handleOrderingKombucha}/>
       buttonText="Return to Kombucha List";
     } else if (this.props.displayState.display === 'CreateKombuchaForm') {
       pageToDisplay = <CreateKombuchaForm onNewKombuchaCreation={this.handleAddingNewKombuchaToList} />
@@ -91,32 +99,10 @@ KombuchaControl = connect(mapStateToProps)(KombuchaControl);
 export default KombuchaControl;
 
 /*
-  // switches formVisibleOnPage state
-  handleClick = () => {
-    if(this.state.selectedKombucha != null) {
-      this.setState({
-        formVisibleOnPage: false,
-        selectedKombucha: null,
-        editing: false
-      });
-    } else {
-      this.setState (prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage
-      }));
-    }
-  }
   // changes editing-flag to update virtual DOM/Display
   handleEditClick = () => {
     this.setState({
       editing: true
-    });
-  }
-
-  handleAddingNewKombuchaToList = (newKombucha) => {
-    const newMasterKombuchaList = this.state.masterKombuchaList.concat(newKombucha);
-    this.setState({
-      masterKombuchaList: newMasterKombuchaList,
-      formVisibleOnPage: false
     });
   }
 
@@ -127,22 +113,6 @@ export default KombuchaControl;
     this.setState({
       masterKombuchaList: editedKombuchaMasterList,
       editing: false,
-      selectedKombucha: null
-    });
-  }
-
-  handleChangingSelectedKombucha=(id) => {
-    const selectedKombucha = this.state.masterKombuchaList
-      .filter(kombucha => kombucha.id === id)[0];
-    this.setState({
-      selectedKombucha: selectedKombucha
-    });
-  }
-
-  handleDeletingKombucha = (id) => {
-    const newMasterKombuchaList = this.state.masterKombuchaList.filter(kombucha => kombucha.id !== id);
-    this.setState ({
-      masterKombuchaList: newMasterKombuchaList,
       selectedKombucha: null
     });
   }
