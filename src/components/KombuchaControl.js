@@ -39,12 +39,13 @@ class KombuchaControl extends React.Component {
   render() {
     let buttonText = null;
     let pageToDisplay = null;
-    
+    const selectedKombuchaId = this.props.displayState.kombuchaId
+
     if (this.props.displayState.display === 'EditKombuchaForm') {
       pageToDisplay = <EditKombuchaForm />
       buttonText = "Return to Kombucha List";
     } else if (this.props.displayState.display === 'KombuchaDetail') {
-      pageToDisplay = <KombuchaDetail />
+      pageToDisplay = <KombuchaDetail kombucha = {this.props.masterKombuchaList[selectedKombuchaId]}/>
       buttonText="Return to Kombucha List";
     } else if (this.props.displayState.display === 'CreateKombuchaForm') {
       pageToDisplay = <CreateKombuchaForm />
