@@ -1,5 +1,6 @@
 import formVisibleReducer from '../../reducers/form-visible-reducer';
 import * as c from './../../actions/ActionTypes';
+import * as a from './../../actions/index';
 
 describe ('formVisibleReducer', () => {
 
@@ -7,8 +8,8 @@ describe ('formVisibleReducer', () => {
     expect(formVisibleReducer(false, {type: null})).toEqual(false);
   });
 
-  test('Should switch formVisible state to true' () => {
-    expect(formVisibleReducer)
+  test('Should switch formVisible state to true', () => {
+    expect(formVisibleReducer(false, a.toggleForm)).toEqual(true);
   });
 
 })
