@@ -1,4 +1,4 @@
-import kombuchaListReducer from '../../reducers/form-visible-reducer';
+import kombuchaListReducer from '../../reducers/kombucha-list-reducer';
 import * as a from './../../actions/index';
 import * as c from './../../actions/ActionTypes';
 
@@ -6,7 +6,7 @@ describe ('KombuchaListReducer', () => {
 
   const kombuchaData = {
     name: "Cherry Garcia",
-    brewery: "Greatful 'Bucha",
+    brewery: "Greatful Bucha",
     price: 9,
     description: 'A cherry brew for the ages',
     imgURL: '#',
@@ -20,10 +20,9 @@ describe ('KombuchaListReducer', () => {
   });
 
   test('Should add a new Kombucha to the kombucha list', () => {
-    const action = addTicket(kombuchaData);
-    const kombuchaId = kombuchaData.id;
-
-    expect(kombuchaListReducer({}, action)).toEqual({[kombuchaId]: kombuchaData});
+    const action = a.addKombucha(kombuchaData);
+    const response = kombuchaListReducer({}, action);
+    expect(kombuchaListReducer({}, action)).toEqual({[kombuchaData.id]: kombuchaData});
   });
 
 })
