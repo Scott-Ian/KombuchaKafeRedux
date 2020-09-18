@@ -9,7 +9,7 @@ export default (state = 'KombuchaList', action) => {
     case c.KOMBUCHA_DETAIL:
       return 'KombuchaDetail';
     case c.CREATE_KOMBUCHA:
-      return CreateKombuchaForm;
+      return 'CreateKombuchaForm';
     case c.KOMBUCHA_LIST:
       return 'KombuchaList'
     default:

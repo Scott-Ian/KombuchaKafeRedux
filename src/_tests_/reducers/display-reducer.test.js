@@ -4,9 +4,17 @@ import * as c from './../../actions/ActionTypes';
 
 describe('displayReducer', () => {
 
+  const displayState = 'KombuchaList';
+
+
   test('Should return current display state string when no action type is called', () => {
-    const currentDisplayStateString = 'KombuchaList';
-    expect(displayReducer('KombuchaList', { type: null})).toEqual('KombuchaList');
+    expect(displayReducer(displayState, { type: null})).toEqual(displayState);
+  })
+
+  test('Should update display state to KombuchaDetail when detailDisplay action is dispatched', () => {
+    const action = a.detailDisplay();
+
+    expect(displayReducer(displayState, action)).toEqual('KombuchaDetail');
   })
 
 });
