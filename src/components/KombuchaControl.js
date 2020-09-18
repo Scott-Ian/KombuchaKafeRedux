@@ -61,17 +61,12 @@ class KombuchaControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.restockKombucha(id);
     dispatch(action);
+  }
 
-    // const kombuchaToRestock = this.state.masterKombuchaList
-    //   .filter(kombucha => kombucha.id === id)[0];
-    // const restockedKombucha = {...kombuchaToRestock, quantity:124};
-    // const newMasterKombuchaList = this.state.masterKombuchaList
-    //   .filter(kombucha => kombucha.id !== id)
-    //   .concat(restockedKombucha);
-    // this.setState({
-    //   masterKombuchaList: newMasterKombuchaList,
-    //   selectedKombucha: null
-    // })
+  handleOrderingKombucha = (id) => {
+    const { dispatch } = this.props;
+    const action = a.orderKombucha(id);
+    dispatch(action);
   }
 
 
@@ -135,29 +130,4 @@ export default KombuchaControl;
     });
   }
 
-  handleOrderingKombucha = (id) => {
-    const kombuchaToOrder = this.state.masterKombuchaList
-      .filter(kombucha => kombucha.id === id)[0];
-    
-    if(kombuchaToOrder.quantity > 0) {
-      const newTotal = kombuchaToOrder.quantity -1;
-      const newNumberOrderedTotal = kombuchaToOrder.numberOrdered +1;
-      const orderedKombucha = {...kombuchaToOrder, quantity:newTotal, numberOrdered: newNumberOrderedTotal};
-
-      const newMasterKombuchaList = this.state.masterKombuchaList
-      .filter(kombucha => kombucha.id !== id)
-      .concat(orderedKombucha);
-
-      this.setState({
-        masterKombuchaList: newMasterKombuchaList,
-        selectedKombucha: null,
-      });
-
-      const newTopSellers = this.state.masterKombuchaList.sort( (a,b) => a.numOrdered + b.numOrdered).slice(0,3);
-
-      this.setState({
-        topSellers: newTopSellers
-      });
-    }
-  }
 */
