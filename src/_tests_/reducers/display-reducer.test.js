@@ -7,7 +7,7 @@ describe('displayReducer', () => {
 
   const displayState = {
     display: 'KombuchaList',
-    id: 0
+    kombuchaId: 0
   }
 
 
@@ -19,7 +19,7 @@ describe('displayReducer', () => {
     const action = a.detailDisplay(2);
     const expectedDisplay = {
       display: 'KombuchaDetail',
-      id: 2
+      kombuchaId: 2
     }
     expect(displayReducer(displayState, action)).toEqual(expectedDisplay);
   })
@@ -28,7 +28,7 @@ describe('displayReducer', () => {
     const action = a.editKombucha(7);
     const expectedDisplay = {
       display: 'EditKombuchaForm',
-      id: 7
+      kombuchaId: 7
     }
     expect(displayReducer(displayState, action)).toEqual(expectedDisplay);
   })
@@ -37,7 +37,6 @@ describe('displayReducer', () => {
     const action = a.createDisplay();
     const expectedDisplay = {
       display: 'CreateKombuchaForm',
-      id: 0
     }
     expect(displayReducer(displayState, action)).toEqual(expectedDisplay);
   })

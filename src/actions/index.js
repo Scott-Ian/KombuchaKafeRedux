@@ -35,19 +35,19 @@ export const restockKombucha = (id) => ({
 });
 
 export const listDisplay = () => ({
-  type: c.KOMBUCHA_LIST
+  type: c.KOMBUCHA_LIST,
 })
 
 export const createDisplay = () => ({
-  type: c.CREATE_KOMBUCHA
+  type: c.CREATE_KOMBUCHA,
 })
 
-export const detailDisplay = (id) => ({
+export const detailDisplay = (kombuchaId) => ({
   type: c.KOMBUCHA_DETAIL,
-  id
+  kombuchaId
 });
 
-export const editKombucha = (id) => ({
+export const editKombucha = (kombuchaId) => ({
   type: c.EDIT_KOMBUCHA,
-  id
+  kombuchaId
 })
