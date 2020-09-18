@@ -4,7 +4,7 @@
 
 ## <h2 align = "center"> About
 
-<p align = "center"> This is an application for a kombucha bar that manages beverages on tap, amount remaining in a keg, and popularity/number of times a drink has been ordered. It also allows for a user to order, add, delete, or alter a beverage.
+<p align = "center"> This is an application for a kombucha bar that manages beverages on tap, amount remaining in a keg, and popularity/number of times a drink has been ordered. It also allows for a user to order, add, delete, or alter a beverage. Uses Redux.
 
 ## <h2 align = "center"> Initial App Mockup
 ![image](./ReadmeImages/KombuchaKafeMockup.jpg)
