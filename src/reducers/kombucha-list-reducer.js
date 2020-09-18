@@ -22,12 +22,17 @@ export default (state ={}, action) => {
       delete newState[id];
       return newState;
     case c.ORDER_KOMBUCHA:
-      const newStateOrder = {... state };
-      const newQuantity = newStateOrder[id].quantity - 1;
-      const newNumberOrdered = newStateOrder[id].numberOrdered + 1;
-      newStateOrder[id].quantity = newQuantity;
-      newStateOrder[id].numberOrdered = newNumberOrdered;
-    return newStateOrder;
+      if(state[id].quantity > 0) {
+
+        const newStateOrder = {... state };
+        const newQuantity = newStateOrder[id].quantity - 1;
+        const newNumberOrdered = newStateOrder[id].numberOrdered + 1;
+        newStateOrder[id].quantity = newQuantity;
+        newStateOrder[id].numberOrdered = newNumberOrdered;
+        return newStateOrder;
+      } else {
+        return state;
+      }
     case c.RESTOCK_KOMBUCHA:
       return state[id];
     default:
